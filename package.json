@@ -1,0 +1,26 @@
+{
+  "name": "js-obj-digger",
+  "version": "1.0.0",
+  "description": "Browser extension that reveals sensitive data exposed to JavaScript — tokens, sessions, and secrets hiding in localStorage, sessionStorage, cookies, and the window object tree.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "typecheck": "tsc --project extension/jsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkachenko0/js-obj-digger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkachenko0/js-obj-digger/issues"
+  },
+  "homepage": "https://github.com/tkachenko0/js-obj-digger#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.1.37"
+  }
+}

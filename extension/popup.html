@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="auto-header">
+    <h2>TokenLeaks</h2>
+    <div id="header-buttons">
+      <button id="reveal">Reveal</button>
+      <button id="rescan">Rescan</button>
+    </div>
+  </div>
+
+  <select id="tab-select"></select>
+
+  <details id="filters">
+    <summary>Filters</summary>
+    <label for="key-patterns">Key patterns (regex, one per line)</label>
+    <textarea id="key-patterns"></textarea>
+    <label for="value-patterns">Value patterns (regex, one per line)</label>
+    <textarea id="value-patterns"></textarea>
+  </details>
+
+  <p id="scan-loading">Scanning...</p>
+
+  <section id="auto-section">
+    <h3>Local Storage</h3>
+    <div id="local-storage"></div>
+
+    <h3>Session Storage</h3>
+    <div id="session-storage"></div>
+
+    <h3>Cookies (JS-accessible only, not HttpOnly)</h3>
+    <div id="cookies"></div>
+  </section>
+
+  <section id="search-section">
+    <h3>Custom Search</h3>
+    <div id="search-bar">
+      <input id="query" placeholder="Search by regex...">
+      <button id="search">Search</button>
+    </div>
+    <p id="loading">Searching...</p>
+    <div id="result">
+      <p id="path"></p>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
