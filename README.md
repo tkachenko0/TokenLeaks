@@ -12,7 +12,7 @@ This project is for educational purposes only. Its goal is to demonstrate that s
 
 ## Example
 
-JWT tokens are Base64URL-encoded and always start with `eyJ` (which is `{"` encoded). Open any web app that uses JWTs, type `eyJ` in the extension popup, and it will find all matching tokens along with their exact paths in the JS object tree.
+JWT tokens are Base64URL-encoded and always start with `eyJ` (which is `{"` encoded). Open any web app that uses JWTs, type `^eyJ` in the window search input, and it will find all matching values along with their exact paths in the JS object tree.
 
 ```
 path: window.app.auth.session.token (token)
@@ -27,12 +27,18 @@ value: eyJhbGciOi..xMnR5cCI6
 1. Clone the repository
 2. Run `fnm use` or `nvm use` to switch to the correct Node version
 3. Run `npm install` to install type definitions
-3. Open `edge://extensions` (or `chrome://extensions`)
-4. Enable "Developer mode"
-5. Click "Load unpacked" and select the `extension/` folder
-6. Open any page, click the extension icon to open the side panel
-7. The auto-scan runs immediately on the active tab
-8. Use the dropdown to switch to a different tab, or type a prefix and press Enter / click Search
+4. Open `edge://extensions` (or `chrome://extensions`)
+5. Enable "Developer mode"
+6. Click "Load unpacked" and select the `extension/` folder
+7. Open any page, click the extension icon to open the side panel
+8. The auto-scan runs immediately on the active tab
+9. Use the dropdown to switch to a different tab, or type a prefix and press Enter / click Search
+
+## Is it safe?
+
+The extension is read-only, it never modifies, deletes, or sends data anywhere. All results stay local in the browser. It reads `localStorage`, `sessionStorage`, JS-accessible cookies, and traverses the `window` object tree looking for matches, but it writes nothing back.
+
+It won't break websites under normal conditions. The only minor thing to be aware of: when you trigger a search, a `postMessage` with type `DIG_JS` is sent on the page, which may show up if you're debugging `postMessage` traffic.
 
 ## Type checking
 
